@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -8,7 +9,8 @@ import {Router} from "@angular/router";
 })
 export class ProductPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+  private location: Location) { }
 
   ngOnInit() {
   }
@@ -18,6 +20,9 @@ export class ProductPageComponent implements OnInit {
     //Notice the router instance how it was loaded in the constructor.
     //That apply to all services. No need to use 'new' keyword to instatiate an object.
     this.router.navigate(['product','products']);
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 }
