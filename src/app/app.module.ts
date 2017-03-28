@@ -14,9 +14,9 @@ import { ProductDetailsPageComponent } from './pages/product-details-page/produc
 import { FakeService } from "./services/fake.service";
 import { LoginPageComponent } from "./authentication/login-page/login-page.component";
 import { LoggedPageComponent } from "./authentication/logged-page/logged-page.component";
-
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {AuthService} from "./services/auth.service";
+import {Ng2Webstorage} from 'ng2-webstorage';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import {AuthService} from "./services/auth.service";
     ProductPageComponent,
     ProductDetailsPageComponent,
     LoginPageComponent,
-    LoggedPageComponent
+    LoggedPageComponent,
+    Ng2Webstorage,
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

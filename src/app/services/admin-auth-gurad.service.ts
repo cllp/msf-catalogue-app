@@ -2,6 +2,7 @@
 import { HttpClient } from "./http-client.service";
 import {CanActivate, Router, ActivatedRouteSnapshot, Params} from "@angular/router";
 import {AuthService} from "app/services/auth.service";
+import {LocalStorageService} from 'ng2-webstorage';
 
 
 
@@ -9,9 +10,11 @@ import {AuthService} from "app/services/auth.service";
 
 @Injectable()
 export class AdminAuthGuardService implements CanActivate{
-    constructor(private authService: AuthService, private router: Router,private http: HttpClient) { }
+    constructor(private authService: AuthService, private router: Router,private http: HttpClient,private storage:LocalStorageService) { }
     canActivate() {
         this.authService.endSigninMainWindow();
+        this.authService.userLoadededEvent
+             .subscribe(users => this.users = users);
         return true;
     } 
 }
