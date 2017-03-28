@@ -1,6 +1,6 @@
 ﻿{
   "/api/*": {
-    "target": "http://localhost:59189",
+    "target": "http://twb3-backend.azurewebsites.net",
     "secure": false,
     "loglevel": "debug"
   }

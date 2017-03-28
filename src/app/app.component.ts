@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works! This title will stay here when you navigate, because it is part of the parent';
+  // title = 'app works!';
+  
 }
