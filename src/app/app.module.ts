@@ -17,6 +17,7 @@ import { LoggedPageComponent } from "./authentication/logged-page/logged-page.co
 
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {AuthService} from "./services/auth.service";
+import {Ng2Webstorage} from 'ng2-webstorage';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {AuthService} from "./services/auth.service";
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2Webstorage,
   ],
   //All services should be registered here
   providers: [
