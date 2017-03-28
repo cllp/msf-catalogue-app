@@ -1,23 +1,25 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { Router } from "@angular/router";
+import {AuthService} from "app/services/auth.service";
 
 @Component({
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent{
 
-    constructor(private router: Router) { }
-
-    ngOnInit() {
+    constructor(private authService: AuthService) {
     }
 
-    //This is a method that you can use in the html.
-    goToProducts() {
-        //Notice the router instance how it was loaded in the constructor.
-        //That apply to all services. No need to use 'new' keyword to instatiate an object.
-        this.router.navigate(['login']);
-    }
+  
+  //This is a method that you can use in the html.
+  startSigninMainWindow(){
+    this.authService.startSigninMainWindow();
+  }
+
+  startSignoutMainWindow() {
+    this.authService.startSignoutMainWindow();
+  }
 
 }
