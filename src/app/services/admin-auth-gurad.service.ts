@@ -6,16 +6,10 @@ import {AuthService} from "app/services/auth.service";
 
 @Injectable()
 export class AdminAuthGuardService implements CanActivate{
-     _user : any;
-     loadedUserSub: any;
     constructor(private authService: AuthService, private router: Router,private http: HttpClient) { }
     canActivate() {
         this.authService.endSigninMainWindow();
-        /*this.loadedUserSub = this.authService.userLoadededEvent
-            .subscribe(user => {
-              this._user = user;
-        });*/
-        //localStorage.setItem('Users', this._user); 
+        //this.router.navigate(['pages/product']);
         return true;
     } 
 }

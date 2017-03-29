@@ -5,19 +5,20 @@ import { ProductDetailsPageComponent } from "../pages/product-details-page/produ
 import { LoginPageComponent } from "../authentication/login-page/login-page.component";
 import { LoggedPageComponent } from "../authentication/logged-page/logged-page.component";
 
-export const ADMIN_PATH_GROUP  =  {path:'pages', children:[
-  {path:'product', component:ProductPageComponent},
- { path: 'productdetails', component: ProductDetailsPageComponent }
-    //Add any other children in the same way
-]
-};
-
 export const LOGIN_PATH_GROUP =  {path:'authentication', children:[
          {path:'login', component:LoginPageComponent},
             {path: 'logged', canActivate:[AdminAuthGuardService],component:LoggedPageComponent }
     //Add any other children in the same way
 ]
 };
+
+export const ADMIN_PATH_GROUP  =  {path:'pages', children:[
+  { path:'product', component:ProductPageComponent},
+  { path: 'productdetails', component: ProductDetailsPageComponent }
+    //Add any other children in the same way
+]
+};
+
 export const APP_ROUTES:Routes = [
     // The default route localhost:4200/ you should choose where it should  point.
       { path: '', redirectTo: 'authentication/login', pathMatch: 'full' },

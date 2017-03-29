@@ -19,6 +19,7 @@ export class LoginPageComponent{
   }
 
   startSignoutMainWindow() {
+    localStorage.clear();
     this.authService.startSignoutMainWindow();
   }
 

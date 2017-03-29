@@ -11,6 +11,7 @@ export class AuthService {
   userLoadededEvent: EventEmitter<User> = new EventEmitter<User>();
   currentUser:User;
   loggedIn: boolean = false;
+  userProfile;
 
   authHeaders: Headers;
 
@@ -72,7 +73,14 @@ export class AuthService {
   }
   endSigninMainWindow() {
     this.mgr.signinRedirectCallback().then(function (user) {
-    console.log("signed in",user);
+      let userProfile = {
+        "name":user.profile.name,
+        "email":user.profile.email,
+        "role":user.profile.role
+      }
+      localStorage.setItem("userProfile" ,JSON.stringify(userProfile));
+      localStorage.setItem("id_token" ,user.id_token);
+      localStorage.setItem("access_token" ,user.access_token);
     }).catch(function (err) {
       console.log(err);
     });

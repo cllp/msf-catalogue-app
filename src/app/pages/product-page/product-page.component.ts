@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {FakeService} from "app/services/fake.service";
 
 @Component({
   selector: 'app-product-page',
@@ -8,16 +9,18 @@ import {Router} from "@angular/router";
 })
 export class ProductPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+   posts:any[];
+  constructor(private fakeService:FakeService) { }
 
   ngOnInit() {
+    this.loadPosts();
   }
-
-  //This is a method that you can use in the html.
-  goToProducts(){
-    //Notice the router instance how it was loaded in the constructor.
-    //That apply to all services. No need to use 'new' keyword to instatiate an object.
-    this.router.navigate(['product','products']);
+  
+   loadPosts(){
+    this.fakeService.getPosts().subscribe(data=>{
+      this.posts = data;
+    },error=>console.log('error in loading the posts'));
   }
+  
 
 }
