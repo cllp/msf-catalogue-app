@@ -30,3 +30,22 @@ button:disabled {
   cursor: auto;
 }
 
+button {
+  margin-top: 380px;
+  font-family: Arial;
+  background-color:#c0bcb0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+
+button:hover {
+  background-color: #717171;
+}
+
+button:disabled {
+  background-color: #f4f4f4;
+  color: #575756;
+  cursor: auto;
+}
