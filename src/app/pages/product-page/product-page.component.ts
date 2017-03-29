@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { Location } from '@angular/common';
+
+import { Location }               from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -10,7 +11,8 @@ import { Location } from '@angular/common';
 export class ProductPageComponent implements OnInit {
 
   constructor(private router:Router,
-  private location: Location) { }
+
+    private location: Location) { }
 
   ngOnInit() {
   }
