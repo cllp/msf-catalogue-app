@@ -9,7 +9,6 @@ export class AdminAuthGuardService implements CanActivate{
     constructor(private authService: AuthService, private router: Router,private http: HttpClient) { }
     canActivate() {
         this.authService.endSigninMainWindow();
-        //this.router.navigate(['pages/product']);
         return true;
     } 
 }

@@ -13,7 +13,6 @@ export class ProductPageComponent implements OnInit {
   constructor(private fakeService:FakeService) { }
 
   ngOnInit() {
-    this.loadPosts();
   }
   
    loadPosts(){

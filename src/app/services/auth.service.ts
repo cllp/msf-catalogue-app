@@ -72,6 +72,7 @@ export class AuthService {
     });
   }
   endSigninMainWindow() {
+    console.log("end signed in");
     this.mgr.signinRedirectCallback().then(function (user) {
       let userProfile = {
         "name":user.profile.name,
@@ -186,7 +187,7 @@ export class AuthService {
 const settings: any = {
   authority: 'http://localhost:5000',
   client_id: 'js',
-  redirect_uri: 'http://localhost:4200/authentication/logged',
+  redirect_uri: 'http://localhost:4200/pages/product',
   post_logout_redirect_uri: 'http://localhost:4200/',
   response_type: 'id_token token',
   scope: 'openid profile api1 custom.profile'
