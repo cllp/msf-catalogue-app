@@ -13,6 +13,7 @@ import { AdminAuthGuardService } from "./services/admin-auth-gurad.service";
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
 import { FakeService } from "./services/fake.service";
 import { LoginPageComponent } from "./authentication/login-page/login-page.component";
+import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {AuthService} from "./services/auth.service";
 
@@ -22,7 +23,8 @@ import {AuthService} from "./services/auth.service";
     AppComponent,
     ProductPageComponent,
     ProductDetailsPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    LoggedInPageComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),

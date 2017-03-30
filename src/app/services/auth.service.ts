@@ -82,6 +82,7 @@ export class AuthService {
       localStorage.setItem("userProfile" ,JSON.stringify(userProfile));
       localStorage.setItem("id_token" ,user.id_token);
       localStorage.setItem("access_token" ,user.access_token);
+
     }).catch(function (err) {
       console.log(err);
     });
@@ -187,7 +188,7 @@ export class AuthService {
 const settings: any = {
   authority: 'http://localhost:5000',
   client_id: 'js',
-  redirect_uri: 'http://localhost:4200/pages/product',
+  redirect_uri: 'http://localhost:4200/authentication/loggedIn',
   post_logout_redirect_uri: 'http://localhost:4200/',
   response_type: 'id_token token',
   scope: 'openid profile api1 custom.profile'

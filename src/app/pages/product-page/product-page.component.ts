@@ -9,10 +9,11 @@ import {FakeService} from "app/services/fake.service";
 })
 export class ProductPageComponent implements OnInit {
 
-   posts:any[];
+  posts:any[];
   constructor(private fakeService:FakeService) { }
 
   ngOnInit() {
+     this.loadPosts();
   }
   
    loadPosts(){
@@ -20,6 +21,4 @@ export class ProductPageComponent implements OnInit {
       this.posts = data;
     },error=>console.log('error in loading the posts'));
   }
-  
-
 }
