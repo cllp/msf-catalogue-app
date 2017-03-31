@@ -3,23 +3,20 @@ import { AdminAuthGuardService } from "../services/admin-auth-gurad.service";
 import { ProductPageComponent } from "../pages/product-page/product-page.component";
 import { ProductDetailsPageComponent } from "../pages/product-details-page/product-details-page.component";
 import { LoginPageComponent } from "../authentication/login-page/login-page.component";
+import { LoggedInPageComponent } from "../authentication/logged-page/logged-page.component";
 
-export const ADMIN_PATH_GROUP  =  {path:'pages',canActivate:[AdminAuthGuardService], children:[
-  {path:'product', component:ProductPageComponent},
- { path: 'productdetails', component: ProductDetailsPageComponent }
+export const LOGIN_PATH_GROUP =  {path:'authentication', children:[
+         {path:'login', component:LoginPageComponent},
+         {path:'loggedIn', component:LoggedInPageComponent}
     //Add any other children in the same way
 ]
 };
 
-export const LOGIN_PATH_GROUP = {
-    path: 'authentication', canActivate: [AdminAuthGuardService], children: [
-        {
-            path: 'login', component: LoginPageComponent, children: [
-                //Add any other children in the same way
-            ]
-        },
-
-    ]
+export const ADMIN_PATH_GROUP  =  {path:'pages', children:[
+  { path:'product', component:ProductPageComponent },
+  { path: 'productdetails', component: ProductDetailsPageComponent }
+    //Add any other children in the same way
+]
 };
 
 export const APP_ROUTES:Routes = [

@@ -13,7 +13,9 @@ import { AdminAuthGuardService } from "./services/admin-auth-gurad.service";
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
 import { FakeService } from "./services/fake.service";
 import { LoginPageComponent } from "./authentication/login-page/login-page.component";
+import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -22,20 +24,22 @@ import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
     ProductPageComponent,
     ProductDetailsPageComponent,
     LoginPageComponent,
+    LoggedInPageComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpModule
   ],
   //All services should be registered here
   providers: [
     Service,
     HttpClient , //should be replaced with AuthHttp if you are using jwt-auth
     AdminAuthGuardService,
-    FakeService
+    FakeService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
