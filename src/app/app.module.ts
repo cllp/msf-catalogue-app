@@ -16,8 +16,6 @@ import { LoginPageComponent } from "./authentication/login-page/login-page.compo
 import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 import {AuthService} from "./services/auth.service";
-import {Ng2Webstorage} from 'ng2-webstorage';
-
 
 @NgModule({
   declarations: [
