@@ -2,8 +2,8 @@
 import {Router} from "@angular/router";
 import {FakeService} from "app/services/fake.service";
 import { Location,} from '@angular/common';
-import { DropdownToggleDirective } from 'app/dropdown-toggle.directive';
-import { DropdownDirective } from 'app/dropdown.directive';
+//import { DropdownToggleDirective } from 'app/dropdown-toggle.directive';
+//import { DropdownDirective } from 'app/dropdown.directive';
 import {AuthService} from "app/services/auth.service";
 
 @Component({
