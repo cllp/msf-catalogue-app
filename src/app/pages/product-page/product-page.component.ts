@@ -24,11 +24,18 @@ export class ProductPageComponent implements OnInit {
       this.loadPosts();
     }
     loadPosts(){
-      this.fakeService.getPosts().subscribe(data=>{
+      this.fakeService.GetAll().subscribe(data=>{
         this.posts = data;
       },error=>console.log('error in loading the posts'));
     }
 
+  //This is a method that you can use in the html.
+  GetAll(){
+    //Notice the router instance how it was loaded in the constructor.
+    //That apply to all services. No need to use 'new' keyword to instatiate an object.
+    this.router.navigate(['product','products']);
+  }
+  
     goBack(): void {
       this.location.back();
     }

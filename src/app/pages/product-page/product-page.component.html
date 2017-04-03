@@ -1,4 +1,4 @@
-<!--The child you navigate to will live here-->
+﻿<!--The child you navigate to will live here-->
 <nav class="navbar left">
   <div class="container-fluid">
     <ul class="nav navbar-nav navbar-right">
@@ -38,15 +38,13 @@
   </div>
 </nav>
 <hr/>
-<button (click)="goBack()">Back</button>
-<a routerLink="/pages/productdetails"> go to product detail page</a>
-<p>
-  product-page works!
-</p>
 
-<h3>List of some data fetched by a service</h3>
-<ul *ngIf="posts">
-  <li *ngFor="let post of posts">
-    <p>{{post.name}}</p>
-  </li>
-</ul>
+<div class="col-xs-4 col-sm-2 placeholder">
+  <ul *ngIf="products">
+     <li *ngFor="let product of products">
+             <a routerLink="/pages/productdetails"> <img src="./assets/{{product.productFile}}" width="300" height="200" class="img-rounded" alt="Generic placeholder thumbnail"></a>
+              <h4>{{product.productName}}</h4>
+              </li>
+          </ul>
+          </div>
+<button (click)="goBack()">Back</button>

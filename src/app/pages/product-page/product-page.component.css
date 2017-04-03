@@ -1,6 +1,7 @@
 ﻿.navbar-nav > li{
   padding-left:30px;
   padding-right:30px;
+  cursor: pointer;
 }
 
 hr {
@@ -31,11 +32,11 @@ button:disabled {
 }
 
 button {
-  margin-top: 380px;
+  margin-top: 80px;
   font-family: Arial;
   background-color:#c0bcb0;
+  margin-right: 900px;
   border: none;
-  padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer; cursor: hand;
 }
@@ -48,4 +49,14 @@ button:disabled {
   background-color: #f4f4f4;
   color: #575756;
   cursor: auto;
+}
+.placeholder{
+    margin-top:50px;
+    margin-left:300px;
+}
+.row {
+  margin-left: 100px;
+}
+.nameImage {
+   margin-left: 100px;
 }
