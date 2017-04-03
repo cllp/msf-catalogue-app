@@ -8,16 +8,16 @@ import {AuthService} from "app/services/auth.service";
     styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent{
-    constructor(private authService: AuthService) {
+    constructor(private authService: AuthService,private router: Router) {
     }
   //This is a method that you can use in the html.
+   ngOnInit() {
+      if (localStorage.getItem('username')) {
+          this.router.navigate(['pages/product']);
+      }
+   }  
+
   startSigninMainWindow(){
     this.authService.startSigninMainWindow();
   }
-
-  startSignoutMainWindow() {
-    localStorage.clear();
-    this.authService.startSignoutMainWindow();
-  }
-
 }

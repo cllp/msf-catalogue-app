@@ -79,10 +79,11 @@ export class AuthService {
         "email":user.profile.email,
         "role":user.profile.role
       }
+      localStorage.setItem("username" ,user.profile.name);
       localStorage.setItem("userProfile" ,JSON.stringify(userProfile));
       localStorage.setItem("id_token" ,user.id_token);
       localStorage.setItem("access_token" ,user.access_token);
-
+      window.location.href='http://localhost:4200';
     }).catch(function (err) {
       console.log(err);
     });

@@ -13,6 +13,5 @@ export class LoggedInPageComponent{
 
      ngOnInit() {
           this.authService.endSigninMainWindow();
-        this.router.navigate(['pages/product']);
     }
 }
