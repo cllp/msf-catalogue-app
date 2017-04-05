@@ -11,7 +11,8 @@ import { AuthService } from "app/services/auth.service";
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-
+imageWidth: number = 250;
+   imageMargin: number = 2;
   products: any[];
   profile = JSON.parse(localStorage.getItem("userProfile"));
   username = this.profile["name"];

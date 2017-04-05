@@ -1,64 +1,139 @@
 ﻿<!--The child you navigate to will live here-->
 <nav class="navbar left">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="#" style="color:#1d1d1b">Manufacturer<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li><a href="#" style="color:#1d1d1b">Users<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li><a href="#" style="color:#1d1d1b">Products<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li><a href="#" style="color:#1d1d1b">Feedback<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li><a href="#" style="color:#1d1d1b">Logs<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="startSignoutMainWindow()">
-          Logout {{username}}
-        </a>
-      </li>
-    </ul>
-  </div>
+ <div class="container-fluid">
+   <ul class="nav navbar-nav navbar-right">
+     <li class="active"><a href="#" style="color:#1d1d1b ">Manufacturer<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+         <li><a href="#">Page 1-1</a></li>
+         <li><a href="#">Page 1-2</a></li>
+         <li><a href="#">Page 1-3</a></li>
+       </ul></li>
+     <li ><a href="#" style="color:#1d1d1b ">Users<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+         <li><a href="#" >Page 1-1</a></li>
+         <li><a href="#">Page 1-2</a></li>
+         <li><a href="#">Page 1-3</a></li>
+       </ul></li>
+     <li><a href="#" style="color:#1d1d1b ">Products<span class="caret"></span></a><ul class="dropdown-menu">
+         <li><a href="#">Page 1-1</a></li>
+         <li><a href="#">Page 1-2</a></li>
+         <li><a href="#">Page 1-3</a></li>
+       </ul></li>
+     <li><a href="#" style="color:#1d1d1b ">Feedback<span class="caret"></span></a><ul class="dropdown-menu">
+         <li><a href="#">Page 1-1</a></li>
+         <li><a href="#">Page 1-2</a></li>
+         <li><a href="#">Page 1-3</a></li>
+       </ul></li>
+     <li><a href="#" style="color:#1d1d1b ">Logs<span class="caret"></span></a><ul class="dropdown-menu">
+         <li><a href="#">Page 1-1</a></li>
+         <li><a href="#">Page 1-2</a></li>
+         <li><a href="#">Page 1-3</a></li>
+       </ul></li>
+       <li>     
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="startSignoutMainWindow()">
+         Logout {{username}}
+       </a>
+       </li>
+   </ul>
+ </div>
 </nav>
 <hr/>
-<div class="col-xs-4 col-sm-2 placeholder">
-  <h3>List of some data fetched by a service</h3>
-  <ul *ngIf="products">
-    <li *ngFor="let product of products">
-      <a [routerLink]="['/pages/productdetails',product.productId]"><img src="./assets/{{product.productFileName}}" class="img-rounded shelter1 products" /></a>
-      <p>{{product.productName}}</p>
-    </li>
-  </ul>
-
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> LIFESPAN OF INFRASTRUCTURE</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>BASIC shelter</b> (3 mths < x < 6 mths)<br></li>
+          <li><input type="checkbox"><b>TRANSITIONAL shelter</b> (x < 18 mths)<br></li>
+          <li><input type="checkbox"><b>WAREHOUSE structure</b> (x < 2y)<br></li>
+          <li><input type="checkbox"><b>PREFABRICATED structures</b> (x < 5y)</li>
+        </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> SIZE OF INFRASTRUCTURE</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>FAMILY size</b> (10 m2 < x < 10 m2)<br></li>
+          <li><input type="checkbox"><b>POLYVALENT size</b> (20 m2 < x < 50 m2)<br></li>
+          <li><input type="checkbox"><b>MEDIUM size</b> (50 m2 < x < 150 m2)<br></li>
+          <li><input type="checkbox"><b>LARGE size</b> (150 m2 < x)</li>
+      </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> THERMAL VALUE</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>LOW</b><br></li>
+          <li><input type="checkbox"><b>MEDIUM</b><br></li>
+          <li><input type="checkbox"><b>HIGH</b></li>
+        </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> COST EFFECTIVENESS</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>LOW</b>(0 < x < 100€/m2)<br></li>
+          <li><input type="checkbox"><b>MEDIUM</b>(100€/m2 < x < 500€/m2)<br></li>
+          <li><input type="checkbox"><b>HIGH</b>(500€/m2 < x < 1000€/m2)</li>
+        </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> SET-UP TIME</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>LOW</b>(0 < x < 5h)<br></li>
+          <li><input type="checkbox"><b>MEDIUM</b>(5h < x < 2 days)<br></li>
+          <li><input type="checkbox"><b>HIGH</b>(2 days < x )</li>
+        </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> SPECIFIC FEATURES</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>FLOORING PROVIDED</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY PLANE</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY CONTAINER TRUCK</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY PICKUP</b></li>
+        </ul>
+      </li>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4 sidenav">
+      <li class="dropdown"><a href="#" style="color: #1d1d1b" class="dropdown-toggle" data-toggle="dropdown"><b> VALIDATION STATUS</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 10pt" >
+          <li> <input type="checkbox"><b>PRE-VALIDATED</b><br></li>
+          <li><input type="checkbox"><b>VALIDATED</b></li>
+        </ul>
+      </li>
+  </div>
+  </div>
+</div> 
+<div>
+<div *ngIf="products" class="product">
+ <div *ngFor="let product of Products">
+   <a [routerLink]="['/pages/productdetails', product.productId]">
+     <img class="img-rounded"
+      src='http://i.imgur.com/JFVzqvi.png'
+      [title]='product.productName | uppercase'
+      [style.width.px]='imageWidth'
+      [style.margin.px]='imageMargin'>
+      <div class="caption">
+         <p>{{product.productName}}</p>
+       </div> </a>
+ </div>
+</div>                                      
 </div>
-
 <div>
   <button (click)="goBack()">Back</button>
-  <a routerLink="/pages/productdetails"> 
-             go to the nextpage</a>
 </div>

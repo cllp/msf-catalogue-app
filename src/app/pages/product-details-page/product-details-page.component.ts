@@ -7,6 +7,7 @@ import { AuthService } from "app/services/auth.service";
 import { Subscription }       from 'rxjs/Subscription';
 
 
+
 @Component({
   selector: 'app-products-details-page',
   templateUrl: './product-details-page.component.html',
@@ -22,7 +23,8 @@ export class ProductDetailsPageComponent implements OnInit {
   errorMessage: string;
   private sub: Subscription;
   constructor(private _route: ActivatedRoute,
-    private _productService: FakeService) {
+    private _productService: FakeService,
+    private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -41,6 +43,10 @@ export class ProductDetailsPageComponent implements OnInit {
     this._productService.Get(id).subscribe(
       product => this.post = product,
       error => this.errorMessage = <any>error);
+  }
+   startSignoutMainWindow() {
+    localStorage.clear();
+    this.authService.startSignoutMainWindow();
   }
 
 
