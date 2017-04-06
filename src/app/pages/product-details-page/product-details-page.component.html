@@ -18,12 +18,11 @@
 </nav>
 <hr/>
 <div *ngIf='post'>
- 
       <div class='col-md-6'>
                <img class='center-block img-rounded img-responsive'
                     [style.width.px]='600'
                     [style.margin.px]='4'
-                    src='http://i.imgur.com/JFVzqvi.png'
+                    src='http://i.imgur.com/{{post.productFileName}}'
                     [title]='post.productName'>
            </div>
    <div class='panel-body'>
@@ -34,20 +33,13 @@
                </div>
                <div class='row'>
                    <div class='col-md-3'>Description:</div>
-                   <div class='col-md-6'>{{post.FDescription}}</div>
+                   <div class='col-md-6'>{{post.fDescription}}</div>
                </div>
-               <div class='row'>
-                   <div class='col-md-3'>productFileName:</div>
-                   <div class='col-md-6'>{{post.productFileName}}</div>
                </div>
-                     
-                   </div>
                </div>
            </div>
        </div>
-   </div>
    <div class='panel-footer'>
-       <input type="submit" value="choose"   class="btn btn-default btncompare"/>
+          <input type="submit" value="choose"   class="btn btn-default btncompare"/>
           <input type="submit" value="compare"   class="btn btn-default btnchoose"/>
-   </div>
 </div>

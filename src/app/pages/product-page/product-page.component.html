@@ -121,10 +121,10 @@
 </div> 
 <div>
 <div *ngIf="products" class="product">
- <div *ngFor="let product of Products">
+ <div *ngFor="let product of products">
    <a [routerLink]="['/pages/productdetails', product.productId]">
      <img class="img-rounded"
-      src='http://i.imgur.com/JFVzqvi.png'
+      src='http://i.imgur.com/{{product.productFileName}}'
       [title]='product.productName | uppercase'
       [style.width.px]='imageWidth'
       [style.margin.px]='imageMargin'>
