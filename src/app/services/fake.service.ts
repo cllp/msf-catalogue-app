@@ -4,7 +4,6 @@ import {HttpClient} from "./http-client.service";
 import {Observable} from "rxjs/Rx";
 
 const _API_BASE = 'http://localhost:5006/api/';
-
 //Do not forget to register the service in the app module in the 'providers' array.
 //To use this service just inject it into the constructor of any component.
 @Injectable()
