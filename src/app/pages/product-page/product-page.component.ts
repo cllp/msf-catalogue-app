@@ -2,22 +2,20 @@
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
 import { FakeService } from "../../services/fake.service";
-import { AuthService } from "app/services/auth.service";
-
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css']
 })
-export class ProductPageComponent implements OnInit {
-imageWidth: number = 250;
-   imageMargin: number = 2;
-  products: any[];
-  profile = JSON.parse(localStorage.getItem("userProfile"));
-  username = this.profile["name"];
 
-  constructor(private router: Router, private fakeService: FakeService, private authService: AuthService, private location: Location) { }
+export class ProductPageComponent implements OnInit {
+
+  imageWidth: number = 250;
+  imageMargin: number = 2;
+  products: any[];
+  
+  constructor(private router: Router, private fakeService: FakeService,private location: Location) { }
 
   ngOnInit() {
     //load the data on init.
@@ -42,11 +40,6 @@ imageWidth: number = 250;
   }
   goBack(): void {
     this.location.back();
-  }
-
-  startSignoutMainWindow() {
-    localStorage.clear();
-    this.authService.startSignoutMainWindow();
   }
 
 }
