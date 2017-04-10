@@ -1,63 +1,75 @@
 ﻿<!--The child you navigate to will live here-->
 <app-menu-page></app-menu-page>
-<div class='col-md-3'>
-    <ul>
-    <b>LIFSPAN OF INFRASTRUCTURE</b>
-    <li>
-    <input type=checkbox>BASIC shelter
-    </li>
-    <li>
-    <input type=checkbox>TRANSITIONAL shelter
-    </li>
-    <li>
-    <input type=checkbox>WAREHOUSE structure
-    </li>
-    <li>
-    <input type=checkbox>PREFABRICATED structure
-    </li>
-    </ul>
-    <ul>
-    <b>SIZE OF INFRASTRUCTURE</b>
-    <li>
-    <input type=checkbox><b>FAMILY size</b> (10 m2 < x < 10 m2)
-    </li>
-    <li>
-    <input type=checkbox><b>POLYVALENT size</b> (20 m2 < x < 50 m2)
-    </li>
-    <li>
-    <input type=checkbox><b>MEDIUM size</b> (50 m2 < x < 150 m2)
-    </li>
-    <li>
-    <input type=checkbox><b>LARGE size</b> (150 m2 < x)
-    </li>
-    </ul>
-    <ul>
-    <b>THERMAL VALUE</b>
-    <li>
-    <input type=checkbox><b>LOW</b> 
-    </li>
-    <li>
-    <input type=checkbox><b>MEDIUM</b> 
-    </li>
-    <li>
-    <input type=checkbox><b>HIGH </b> 
-    </li>
-    </ul>
-    <ul>
-    <b> COST EFFECTIVENESS</b>
-    <li>
-    <input type=checkbox><b>LOW</b>(0 < x < 100€/m2) 
-    </li>
-    <li>
-    <input type=checkbox><b>MEDIUM</b>(100€/m2 < x < 500€/m2) 
-    </li>
-    <li>
-    <input type=checkbox><b>HIGH</b>(500€/m2 < x < 1000€/m2) 
-    </li>
-    </ul>
-    
+
+<div class="container-fluid">
+  <div class="col-sm-4">
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> LIFESPAN OF INFRASTRUCTURE</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li><input type="checkbox"><b>BASIC shelter</b> (3 mths < x < 6 mths)<br></li>
+          <li><input type="checkbox"><b>TRANSITIONAL shelter</b> (x < 18 mths)<br></li>
+          <li><input type="checkbox"><b>WAREHOUSE structure</b> (x < 2y)<br></li>
+          <li><input type="checkbox"><b>PREFABRICATED structures</b> (x < 5y)</li>
+        </ul>
+      </li>
   </div>
-<div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> SIZE OF INFRASTRUCTURE</b><span class="caret"></span></a> 
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>FAMILY size</b> (10 m2 < x < 10 m2)<br></li>
+          <li><input type="checkbox"><b>POLYVALENT size</b> (20 m2 < x < 50 m2)<br></li>
+          <li><input type="checkbox"><b>MEDIUM size</b> (50 m2 < x < 150 m2)<br></li>
+          <li><input type="checkbox"><b>LARGE size</b> (150 m2 < x)</li>
+        </ul>
+      </li>
+  </div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> THERMAL VALUE</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>LOW</b><br></li>
+          <li><input type="checkbox"><b>MEDIUM</b><br></li>
+          <li><input type="checkbox"><b>HIGH</b></li>
+        </ul>
+      </li>
+  </div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> COST EFFECTIVENESS</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>LOW</b>(0 < x < 100 &euro;/m2)<br></li>
+          <li><input type="checkbox"><b>MEDIUM</b>(100&euro;/m2 < x < 500&euro;/m2)<br></li>
+          <li><input type="checkbox"><b>HIGH</b>(500&euro;/m2 < x < 1000&euro;/m2)</li>
+        </ul>
+      </li>
+  </div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> SET-UP TIME</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>LOW</b>(0 < x < 5h)<br></li>
+          <li><input type="checkbox"><b>MEDIUM</b>(5h < x < 2 days)<br></li>
+          <li><input type="checkbox"><b>HIGH</b>(2 days < x )</li>
+        </ul>
+      </li>
+  </div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> SPECIFIC FEATURES</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>FLOORING PROVIDED</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY PLANE</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY CONTAINER TRUCK</b><br></li>
+          <li><input type="checkbox"><b>TRANSPORT BY PICKUP</b></li>
+        </ul>
+      </li>
+  </div>
+  <div class="row sidenav">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b"><b> VALIDATION STATUS</b><span class="caret"></span></a>
+        <ul class="dropdown-menu" style="font-size: 7pt" >
+          <li> <input type="checkbox"><b>PRE-VALIDATED</b><br></li>
+          <li><input type="checkbox"><b>VALIDATED</b></li>
+        </ul>
+      </li>
+  </div>
+  </div>
+</div>  
 <div *ngIf="products" class="product">
  <div *ngFor="let product of products">
    <a [routerLink]="['/pages/productdetails', product.productId]">
@@ -70,5 +82,5 @@
          <p>{{product.productName}}</p>
        </div> </a>
  </div>
-</div>                                      
-</div>
+</div>     
+                               
