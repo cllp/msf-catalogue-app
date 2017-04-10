@@ -2,8 +2,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { DropdownModule } from "ngx-dropdown";
-
 import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import { APP_ROUTES } from "./routes/routes";
@@ -34,8 +32,7 @@ import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule,
-    DropdownModule
+    HttpModule
   ],
   //All services should be registered here
   providers: [
