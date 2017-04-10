@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { DropdownModule } from "ngx-dropdown";
 import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import { APP_ROUTES } from "./routes/routes";
@@ -17,7 +18,6 @@ import { AlertModule } from 'ng2-bootstrap';
 import { AuthService} from "./services/auth.service";
 import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,8 @@ import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
     AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DropdownModule
   ],
   //All services should be registered here
   providers: [

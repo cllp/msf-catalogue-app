@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
-import { FakeService } from "../../services/fake.service";
 import { AuthService } from "app/services/auth.service";
+import { DropdownModule } from "ngx-dropdown";
 
 @Component({
   selector: 'app-menu-page',
@@ -13,7 +13,7 @@ export class MenuPageComponent {
   profile = JSON.parse(localStorage.getItem("userProfile"));
   username = this.profile["name"]; 
 
-   constructor(private router: Router, private fakeService: FakeService, private authService: AuthService) { }
+   constructor(private router: Router, private authService: AuthService) { }
    startSignoutMainWindow() {
       localStorage.clear();
       this.authService.startSignoutMainWindow();

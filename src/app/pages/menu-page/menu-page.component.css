@@ -61,3 +61,8 @@ button:disabled {
 .nameImage {
    margin-left: 100px;
 }
+.dropdown-menu { 
+  min-width: 140px !important;
+} 
+
+
