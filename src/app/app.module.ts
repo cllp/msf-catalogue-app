@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import { APP_ROUTES } from "./routes/routes";
@@ -16,6 +15,7 @@ import { LoginPageComponent } from "./authentication/login-page/login-page.compo
 import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap';
 import {AuthService} from "./services/auth.service";
+import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
 
 
 @NgModule({
@@ -24,7 +24,8 @@ import {AuthService} from "./services/auth.service";
     ProductPageComponent,
     ProductDetailsPageComponent,
     LoginPageComponent,
-    LoggedInPageComponent
+    LoggedInPageComponent,
+    MenuPageComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
