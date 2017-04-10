@@ -6,15 +6,15 @@ import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import { APP_ROUTES } from "./routes/routes";
 import { ProductPageComponent } from './pages/product-page/product-page.component';
-import {Service} from "./services/service";
-import {HttpClient} from "./services/http-client.service";
+import { Service } from "./services/service";
+import { HttpClient } from "./services/http-client.service";
 import { AdminAuthGuardService } from "./services/admin-auth-gurad.service";
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
 import { FakeService } from "./services/fake.service";
 import { LoginPageComponent } from "./authentication/login-page/login-page.component";
 import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap';
-import {AuthService} from "./services/auth.service";
+import { AuthService} from "./services/auth.service";
 import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
 
 
