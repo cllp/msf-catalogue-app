@@ -1,0 +1,44 @@
+.sidenav{
+    font-size: 10pt;
+    padding-top:10px;
+    margin-bottom:20%;
+}
+
+.dropbtn {
+   background-color:white;
+   color: black;
+   padding: 16px;
+   font-size: 14px;
+   font-weight: bold;
+   border: none;
+   cursor:pointer;
+}
+
+ .dropdown-menu {
+    display: block;
+    font-size: 7pt;
+    border:0 none;
+    box-shadow:none;
+    height:15%;
+}
+
+.dropdown {
+   position: relative;
+   display: inline-block;
+   border: none;
+   /*outline: 0px;*/
+   margin-left:2%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+/* Links inside the dropdown */
+/*.dropdown-content{
+   color: black;
+   padding: 12px 16px;
+   font-size:12px;
+   text-decoration: none;
+   display:list-item;
+   outline:0px;
+   border: none;
+}*/
+

@@ -17,15 +17,17 @@ import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.
 import { AlertModule } from 'ng2-bootstrap';
 import { AuthService} from "./services/auth.service";
 import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
+import { ProductFilterComponent } from './pages/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductPageComponent,
-    ProductDetailsPageComponent,
     LoginPageComponent,
     LoggedInPageComponent,
-    MenuPageComponent
+    MenuPageComponent,
+    ProductPageComponent,
+    ProductDetailsPageComponent,
+    ProductFilterComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
