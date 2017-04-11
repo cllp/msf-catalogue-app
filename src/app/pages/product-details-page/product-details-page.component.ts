@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { FakeService } from "../../services/fake.service";
 import { AuthService } from "app/services/auth.service";
 import { Subscription }       from 'rxjs/Subscription';
-
+import {IProduct} from '../products';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class ProductDetailsPageComponent implements OnInit {
 
 
   pageTitle: string = 'Product Detail';
-  post: any[];
+  post: IProduct;
   errorMessage: string;
   private sub: Subscription;
   constructor(private _route: ActivatedRoute,
