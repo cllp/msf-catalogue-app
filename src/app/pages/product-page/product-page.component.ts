@@ -2,7 +2,7 @@
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
 import { FakeService } from "../../services/fake.service";
-
+import {IProduct} from '../products';
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
@@ -13,7 +13,7 @@ export class ProductPageComponent implements OnInit {
 
   imageWidth: number = 250;
   imageMargin: number = 2;
-  products: any[];
+products:IProduct[];
   
   constructor(private router: Router, private fakeService: FakeService,private location: Location) { }
 
