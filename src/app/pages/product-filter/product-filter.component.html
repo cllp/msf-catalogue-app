@@ -1,3 +1,18 @@
+<div class="container hidden-sm hidden-xs">
+    <div *ngFor="let filter of filters" class="row">
+        <li class="dropdown" dropdown>
+        <a dropdown-open style="color:#1d1d1b"><b>{{filter.FilterGroupDescription}}</b><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li *ngFor="let item of filter.FilterItemsGroup">
+                     <input type="checkbox" (change)="updateCheckedFilterCriteria(filter.ItemSer,item.FilterCriteria,$event)"><span class="filtertxt">{{item.Filter}}</span>
+                </li>
+             </ul>
+        </li>
+    </div>
+</div>
+
+
+<!--
 <div class="container-fluid">
   <div class="col-md-4">
   <div class="row sidenav">
@@ -67,3 +82,4 @@
   </div>
   </div>
 </div>  
+-->
