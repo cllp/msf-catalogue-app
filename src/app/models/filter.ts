@@ -1,7 +1,6 @@
 export interface IFilter { 
-    filterId: number;
-    filterDescription:string;
-    itemId: number;
-    filterName: string;
+    filterGroupDescription:string;
+    filterGroupId: number;
+    filter: string;
     filterCriteria: string;
 }

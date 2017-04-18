@@ -4,7 +4,7 @@
         <a dropdown-open style="color:#1d1d1b"><b>{{filter.FilterGroupDescription}}</b><span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li *ngFor="let item of filter.FilterItemsGroup">
-                     <input type="checkbox" (change)="updateCheckedFilterCriteria(filter.ItemSer,item.FilterCriteria,$event)"><span class="filtertxt">{{item.Filter}}</span>
+                     <input type="checkbox" (change)="updateCheckedFilterCriteria(filter.FilterGroupId,item.FilterCriteria,$event)"><span class="filtertxt">{{item.Filter}}</span>
                 </li>
              </ul>
         </li>
