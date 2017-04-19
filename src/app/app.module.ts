@@ -19,6 +19,8 @@ import { AuthService} from "./services/auth.service";
 import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
 import { ProductFilterComponent } from './pages/product-filter/product-filter.component';
 
+import { ProductFilterService } from './services/productFilter.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import { ProductFilterComponent } from './pages/product-filter/product-filter.co
     HttpClient , //should be replaced with AuthHttp if you are using jwt-auth
     AdminAuthGuardService,
     FakeService,
-    AuthService
+    AuthService,
+    ProductFilterService
   ],
   bootstrap: [AppComponent]
 })
