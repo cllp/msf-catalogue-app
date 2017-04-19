@@ -2,17 +2,18 @@
 <app-menu-page></app-menu-page>
 <product-filter></product-filter>
 
-<div *ngIf="products" class="product">
- <div *ngFor="let product of products">
-   <a [routerLink]="['/pages/productdetails', product.productId]">
-     <img class="img-rounded"
-      src='http://i.imgur.com/{{product.productFileName}}'
-      [title]='product.productName | uppercase'
-      [style.width.px]='imageWidth'
-      [style.margin.px]='imageMargin'>
-      <div class="caption">
-         <p>{{product.productName}}</p>
-       </div> </a>
-  </div>
-</div>     
-                               
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">  
+           <a [routerLink]="['/pages/productdetails', product.ProductID]">
+            <img class="img-rounded"
+                src='src/assets/desgin_shelter.PNG'
+                [title]='product.ProductName | uppercase'
+                [style.width.px]='imageWidth'
+                [style.margin.px]='imageMargin'>
+            <div class="caption">
+             <p>{{product.ProductName}}</p>
+          </div> </a>
+      </div>
+    </div>  
+</div>                                 

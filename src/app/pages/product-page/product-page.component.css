@@ -1,4 +1,14 @@
-﻿.dropbtn {
+﻿.container {
+  width:100%;
+}
+
+.row {
+  width:75%;
+  float:left;
+}
+
+
+/*.dropbtn {
    background-color:white;
    color: black;
    padding: 16px;
@@ -7,14 +17,14 @@
    border: none;
    cursor:pointer;
 }
-/* The container <div> - needed to position the dropdown content */
+The container <div> - needed to position the dropdown content
 .dropdown {
    position: relative;
    display: inline-block;
    border: none;
    outline: 0px;
 }
-/* Links inside the dropdown */
+Links inside the dropdown 
 .dropdown-content{
    color: black;
    padding: 12px 16px;
@@ -24,15 +34,15 @@
    outline:0px;
    border: none;
 }
-/* Change color of dropdown links on hover */
+/* Change color of dropdown links on hover 
 .dropdown-content a:hover {background-color: white}
 
-/* Show the dropdown menu on hover */
+/* Show the dropdown menu on hover 
 .dropdown:hover .dropdown-content {
    display: block;
 }
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
+/* Change the background color of the dropdown button when the dropdown content is shown 
 .dropdown:hover .dropbtn {
    background-color:white;
 }
@@ -48,8 +58,9 @@
   margin-left: 100px;
 }
 .product{
- margin-left: 400px;
+  float:left;
+  padding-left:10%;
 }
 .caption{
  color:black;
-}
+} */
