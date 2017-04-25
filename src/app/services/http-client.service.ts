@@ -1,6 +1,7 @@
 ﻿import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Headers, Response} from "@angular/http";
 import {Observable, Observer} from "rxjs/Rx";
+import {AuthService} from "app/services/auth.service";
 
 @Injectable()
 export class HttpClient {
@@ -9,7 +10,7 @@ export class HttpClient {
     }
 
     get(url):Observable<Response>{
-        return this.http.get(url);
+        return this.http.get(url,this.createAuthOptions());
     }
     post(url,data):Observable<Response>{
         return this.http.post(url,data,this.createAuthOptions());
@@ -52,10 +53,10 @@ export class HttpClient {
             return new RequestOptions({headers:headers});
 
          let newHeaders= new Headers({
-            'Authorization':'',
+            'Authorization':'Bearer' + localStorage.getItem("access_token"),
             'Content-Type':'application/json'
         });
-
+        
         return new RequestOptions({headers:newHeaders});
     }
 

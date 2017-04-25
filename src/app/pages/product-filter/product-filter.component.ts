@@ -32,7 +32,7 @@ export class ProductFilterComponent  {
   }
 
   getProductFilterCriteria(ProductCategory, FilterGroups) {
-    this.productFilterService.GetFilterCriteria(ProductCategory, JSON.stringify(FilterGroups)).subscribe(data => {
+    this.productFilterService.GetFilterCriteria(ProductCategory, FilterGroups).subscribe(data => {
       this.productPageComponent.products = data
     })
   }
