@@ -4,7 +4,7 @@ import { ProductFilterService } from "../../services/productFilter.service";
 import { IFilter } from "app/models/filter";
 import { IFilterGroup } from "app/models/filter"
 import { IFilterItem } from "app/models/filter";
-import { IProduct } from '../products';
+import { IProduct } from 'app/models/products';
 import { ProductPageComponent } from '../product-page/product-page.component';
 
 @Component({

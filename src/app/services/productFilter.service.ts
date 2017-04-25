@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import {Service} from "./service";
 import {HttpClient} from "./http-client.service";
 import {Observable} from "rxjs/Rx";
-import {IFilter} from "../models/filter";
 import {IFilterGroup} from "../models/filter";
-import {IFilterItem} from "../models/filter";
-import {IProduct} from "../pages/products";
+import {IProduct} from "app/models/products";
 
 const _URL_BASE = 'http://localhost:5006/api';
 

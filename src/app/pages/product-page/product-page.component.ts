@@ -1,8 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
-import { FakeService } from "../../services/fake.service";
-import {IProduct} from '../products';
+import { ProductService } from "../../services/product.service";
+import {IProduct} from 'app/models/products';
+
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
@@ -13,29 +14,21 @@ export class ProductPageComponent implements OnInit {
 
   imageWidth: number = 250;
   imageMargin: number = 2;
-products:IProduct[];
-  
-  constructor(private router: Router, private fakeService: FakeService,private location: Location) { }
+  products:IProduct[];
+  filterCriteria= [];
+  constructor(private router: Router, private productService: ProductService,private location: Location) { }
 
   ngOnInit() {
-    //load the data on init.
     this.loadPosts();
   }
 
   loadPosts() {
-    this.fakeService.GetAll().subscribe(data => {
-      //Your logic to render the html.
-
-      //Just like that. (of course do the heard edge checks)
+    this.productService.GetAll().subscribe(data => {
       this.products = data;
-
     }, error => console.log('error in loading the products'));
   }
 
-  //This is a method that you can use in the html.
   getPosts() {
-    //Notice the router instance how it was loaded in the constructor.
-    //That apply to all services. No need to use 'new' keyword to instatiate an object.
     this.router.navigate(['product', 'products']);
   }
   goBack(): void {
