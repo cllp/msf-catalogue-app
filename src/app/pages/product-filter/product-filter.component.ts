@@ -20,7 +20,7 @@ export class ProductFilterComponent  {
   constructor(private productFilterService: ProductFilterService,private productPageComponent:ProductPageComponent) { }
 
   ngOnInit() {
-    this.filter = {"ProductCategory":"Shelter", "FilterGroups":[]};
+    this.filter = {"ProductCategory":"shelter", "FilterGroups":[]};
      this.productFilterService.GetAllFilters().subscribe(data => {
       this.filter.FilterGroups = data
     })

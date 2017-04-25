@@ -12,7 +12,7 @@ const _URL_BASE = 'http://localhost:5006/api';
 @Injectable()
 export class ProductFilterService extends Service {
 private filterLayoutUrl = _URL_BASE+'/filter';
-private filterUrl = 'http://localhost:4200/api/product/';
+private filterUrl = 'http://localhost:5006/api/product/';
     constructor(private http:HttpClient) {super(); }
     GetAllFilters():Observable<IFilterGroup[]> {
         return this.http.get(this.filterLayoutUrl)
