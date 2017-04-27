@@ -18,11 +18,8 @@
 .right-content{
 display :inline;
 }
-.footer{
-  margin-right: 0px;
-  margin-top:0px;
-  clear: both ;
-  float : right;
+.panel-footer{
+  background-color: white
 }
 .btnchoose{
   height : 45px;
@@ -43,6 +40,7 @@ display :inline;
   padding-left:70px;
   padding-right:30px;
 }
+
 hr {
     display: block;
     height: 1px;
@@ -58,7 +56,66 @@ hr {
  display : inline;
 }
 .nameProduct{
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Times New Roman";
   font-weight: normal;
+
 }
+.img-responsive{
+  display:inline;
+}
+.dropdown-toggle{
+  cursor: pointer;
+}
+.overallrating{
+  font-size: 18px;
+}
+.table1{
+margin-top: 125px;
+}
+h6{
+  display: inline;
+  padding: 30px;
+}
+.values{
+  color: red;
+  font-size:18px;
+}
+.fivemaincharacteristics{
+  margin-top:50px;
+  margin-left: 725px;
+}
+.panel-title::before{
+  content: '\25BE';
+}
+.panel-heading{
+  background-color: white;
+}
+.stylelist{
+  color: red;
+}
+h5{
+  display: inline;
+}
+.table1{
+  margin-left: 700px;
+}
+.stylecollaps{
+  color: black;
+  width:100%;
+}
+.btndownload{
+  padding: 12px;
+  height : 60px;
+  width :300px;
+  font-size :16px;
+  color : red ;
+  background:white;
+}
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  .mySlides {display:none}
+.demo {cursor:pointer}

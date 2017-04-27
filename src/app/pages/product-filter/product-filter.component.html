@@ -1,10 +1,10 @@
 <div class="container hidden-sm hidden-xs">
-    <div *ngFor="let filter of filters" class="row">
+    <div *ngFor="let filter of filter.FilterGroups" class="row">
         <li class="dropdown" dropdown>
-        <a dropdown-open style="color:#1d1d1b"><b>{{filter.FilterGroupDescription}}</b><span class="caret"></span></a>
+        <a dropdown-open style="color: black"><b>{{filter.FilterGroupDescription}}</b><span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li *ngFor="let item of filter.FilterItemsGroup">
-                     <input type="checkbox" (change)="updateCheckedFilterCriteria(filter.FilterGroupId,item.FilterCriteria,$event)"><span class="filtertxt">{{item.Filter}}</span>
+                <li *ngFor="let item of filter.FilterItemsGroup" >
+                     <input type="checkbox" (change)="updateCheckedFilterCriteria($event)" [(ngModel)]="item.IsChecked"><span class="filtertxt">{{item.Filter}}</span>
                 </li>
              </ul>
         </li>

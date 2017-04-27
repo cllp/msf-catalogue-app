@@ -1,47 +1,47 @@
 <nav class="navbar left">
   <div class="container-fluid">
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b">Manufacturer<span class="caret"></span></a>
-        <ul class="dropdown-menu">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b;cursor: pointer">Manufacturer<span class="caret"></span></a>
+        <ul class="dropdown-menu" style="cursor: pointer">
           <li><a href="#">Page 1-1</a></li>
           <li><a href="#">Page 1-2</a></li>
           <li><a href="#">Page 1-3</a></li>
         </ul>
       </li>
-      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b">Users<span class="caret"></span></a>
-        <ul class="dropdown-menu">
+      <li class="dropdown" dropdown ><a dropdown-open style="color:#1d1d1b;cursor: pointer">Users<span class="caret"></span></a>
+        <ul class="dropdown-menu" style="cursor: pointer">
           <li><a href="#">Page 1-1</a></li>
           <li><a href="#">Page 1-2</a></li>
           <li><a href="#">Page 1-3</a></li>
         </ul>
       </li>
-      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b">Products<span class="caret"></span></a>
-        <ul class="dropdown-menu">
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b;cursor: pointer" >Products<span class="caret"></span></a>
+        <ul class="dropdown-menu"style="cursor: pointer">
+          <li><a  (click) = "preValidationFunction()" routerLinkActive = "active" >Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b;cursor: pointer">Feedback<span class="caret"></span></a>
+        <ul class="dropdown-menu" style="cursor: pointer">
           <li><a href="#">Page 1-1</a></li>
           <li><a href="#">Page 1-2</a></li>
           <li><a href="#">Page 1-3</a></li>
         </ul>
       </li>
-      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b">Feedback<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
-      <li class="dropdown" dropdown><a dropdown-open style="color:#1d1d1b">Logs<span class="caret"></span></a>
-        <ul class="dropdown-menu">
+      <li class="dropdown" dropdown ><a dropdown-open style="color:#1d1d1b;cursor: pointer">Logs<span class="caret"></span></a>
+        <ul class="dropdown-menu" style="cursor: pointer">
           <li><a href="#">Page 1-1</a></li>
           <li><a href="#">Page 1-2</a></li>
           <li><a href="#">Page 1-3</a></li>
         </ul>
       </li>
       <li class="dropdown" dropdown>
-       <a dropdown-open style="color :red">
-         Logout: {{username}}
+<a dropdown-open style="cursor: pointer">
+         LoggedIn as: <span style=" color :red">{{username}} </span>
        </a>
         <ul class="dropdown-menu">
-          <li><a (click)="startSignoutMainWindow()">LogOut</a></li>
+          <li><a (click)="startSignoutMainWindow()" style="cursor: pointer">LogOut</a></li>
         </ul>
       </li>
     </ul>

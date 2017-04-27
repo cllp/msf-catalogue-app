@@ -11,13 +11,17 @@ import { Service } from "./services/service";
 import { HttpClient } from "./services/http-client.service";
 import { AdminAuthGuardService } from "./services/admin-auth-gurad.service";
 import { ProductDetailsPageComponent } from './pages/product-details-page/product-details-page.component';
-import { FakeService } from "./services/fake.service";
+import { ProductService } from "./services/product.service";
 import { LoginPageComponent } from "./authentication/login-page/login-page.component";
 import { LoggedInPageComponent } from "./authentication/logged-page/logged-page.component";
 import { AlertModule } from 'ng2-bootstrap';
 import { AuthService} from "./services/auth.service";
 import { MenuPageComponent} from "./pages/menu-page/menu-page.component";
 import { ProductFilterComponent } from './pages/product-filter/product-filter.component';
+import { ProductFilterService } from './services/productFilter.service';
+import { StarComponent } from './pages/star/star.component';
+import { PDetailService } from './services/productdetail.service';
+import { ValidationPageComponent } from './pages/validation-page/validation-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { ProductFilterComponent } from './pages/product-filter/product-filter.co
     MenuPageComponent,
     ProductPageComponent,
     ProductDetailsPageComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    StarComponent,
+    ValidationPageComponent
   ],
   imports: [
     RouterModule.forRoot(APP_ROUTES),
@@ -42,8 +48,10 @@ import { ProductFilterComponent } from './pages/product-filter/product-filter.co
     Service,
     HttpClient , //should be replaced with AuthHttp if you are using jwt-auth
     AdminAuthGuardService,
-    FakeService,
-    AuthService
+    ProductService,
+    AuthService,
+    ProductFilterService,
+    PDetailService
   ],
   bootstrap: [AppComponent]
 })

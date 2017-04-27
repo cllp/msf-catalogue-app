@@ -2,11 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router ,ActivatedRoute} from "@angular/router";
 import { Location } from '@angular/common';
-import { FakeService } from "../../services/fake.service";
+import { ProductService } from "../../services/product.service";
 import { AuthService } from "app/services/auth.service";
 import { Subscription }       from 'rxjs/Subscription';
-import {IProduct} from '../products';
+//import {IProduct} from '../../models/products';
+import {PDetailService} from "../../services/productdetail.service"
 
+
+declare let jsPDF;
 
 @Component({
   selector: 'app-products-details-page',
@@ -16,14 +19,14 @@ import {IProduct} from '../products';
 
 
 export class ProductDetailsPageComponent implements OnInit {
-
-
-  pageTitle: string = 'Product Detail';
-  post: IProduct;
+  profile = JSON.parse(localStorage.getItem("userProfile"));
+  username = this.profile["name"];
+  pageTitle: string = 'productdetails';
+  product_detail:any;
   errorMessage: string;
   private sub: Subscription;
   constructor(private _route: ActivatedRoute,
-    private _productService: FakeService,
+    private _detailsService: PDetailService,
     private authService: AuthService) {
   }
 
@@ -31,17 +34,16 @@ export class ProductDetailsPageComponent implements OnInit {
     this.sub = this._route.params.subscribe(
       params => {
         let id = +params['id'];
-        this.Get(id);
+        this.GetDetails(id);
       });
-
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-  Get(id: number) {
-    this._productService.Get(id).subscribe(
-      product => this.post = product,
+  GetDetails(id: number) {
+    this._detailsService.GetDetails(id).subscribe(
+      product => {this.product_detail = product[0]; },
       error => this.errorMessage = <any>error);
   }
    startSignoutMainWindow() {
@@ -49,5 +51,25 @@ export class ProductDetailsPageComponent implements OnInit {
     this.authService.startSignoutMainWindow();
   }
 
+  
+  
 
+public createPDF () {
+var imgnew = new Image();
+imgnew.addEventListener('load', function() {
+    var doc = new jsPDF();
+    doc.setFontType('bold');
+    doc.text(20, 20, 'Name: ' + imgnew.name);
+    doc.text(20, 30, 'OverallRating: ' + imgnew.title);
+    doc.text(20, 40, 'Name In Folder: ' + imgnew.textContent);
+    doc.text(20, 50, 'Code: ' + imgnew.alt);
+    doc.addImage(imgnew, 'jpg', 20, 70);
+    doc.save(imgnew.name + '.pdf');
+});
+imgnew.src = 'assets/'+this.product_detail.imageFile[0].ProductFileName;
+imgnew.name = this.product_detail.ProductName;
+imgnew.title = this.product_detail.OverallRating;
+imgnew.textContent = this.product_detail.imageFile[0].ProductFileName;
+imgnew.alt = this.product_detail.ProductID;
+}
 }

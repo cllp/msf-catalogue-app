@@ -4,6 +4,7 @@ import { ProductPageComponent } from "../pages/product-page/product-page.compone
 import { ProductDetailsPageComponent } from "../pages/product-details-page/product-details-page.component";
 import { LoginPageComponent } from "../authentication/login-page/login-page.component";
 import { LoggedInPageComponent } from "../authentication/logged-page/logged-page.component";
+import { ValidationPageComponent } from "../pages/validation-page/validation-page.component";
 
 export const LOGIN_PATH_GROUP =
   {
@@ -28,7 +29,11 @@ export const ADMIN_PATH_GROUP =
       },
       {
         path: 'productdetails/:id', component: ProductDetailsPageComponent
+      },
+      {
+        path: 'pre-validation', component: ValidationPageComponent
       }
+
       //Add any other children in the same way
     ]
   };

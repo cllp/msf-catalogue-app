@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { ProductFilterService } from "../../services/productFilter.service";
 import { IFilter } from "app/models/filter";
-import { IProduct } from '../products';
-
-import {ProductPageComponent} from '../product-page/product-page.component';
+import { IFilterGroup } from "app/models/filter"
+import { IFilterItem } from "app/models/filter";
+import { IProduct } from 'app/models/products';
+import { ProductPageComponent } from '../product-page/product-page.component';
 
 @Component({
   selector: 'product-filter',
@@ -13,32 +14,26 @@ import {ProductPageComponent} from '../product-page/product-page.component';
 })
 
 export class ProductFilterComponent  {
-  filters:IFilter[];
+  filter:IFilter;
   products:IProduct[];
-
-  filterCriteria = {"ProductCategory":"Shelter", "FilterGroups":[]};
   
-  constructor(private productFilterService: ProductFilterService) { }
+  constructor(private productFilterService: ProductFilterService,private productPageComponent:ProductPageComponent) { }
 
   ngOnInit() {
+    this.filter = {"ProductCategory":"shelter", "FilterGroups":[]};
      this.productFilterService.GetAllFilters().subscribe(data => {
-      this.filters = data;
-    }, error => console.log('error in loading the products'));
+      this.filter.FilterGroups = data
+    })
   } 
 
   // Use this for sending the clicked checkedbox to the API
-  /*updateCheckedFilterCriteria(filter,filteritem,event) {
-    if(event.target.checked) {
-      this.filterCriteria.FilterGroups.push({"ProductGroupId":filter,"FilterCriteria":filteritem});
-    }
-    else if (!event.target.checked){
-      let indexx = this.filterCriteria.FilterGroups.indexOf(filter,filteritem);
-      this.filterCriteria.FilterGroups.splice(indexx,1);
-    }
-    this.getProductFilterCriteria(this.filterCriteria);
+  updateCheckedFilterCriteria(event) {
+    this.getProductFilterCriteria(this.filter.ProductCategory, this.filter.FilterGroups);
   }
 
-    getProductFilterCriteria(filterCriteria) {
-        this.productFilterService.GetFilterCriteria(JSON.stringify(this.filterCriteria));
-    }*/
+  getProductFilterCriteria(ProductCategory, FilterGroups) {
+    this.productFilterService.GetFilterCriteria(ProductCategory, FilterGroups).subscribe(data => {
+      this.productPageComponent.products = data
+    })
+  }
 }

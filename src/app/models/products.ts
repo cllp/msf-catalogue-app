@@ -1,10 +1,10 @@
 export interface IProduct {
-    productId: number;
-    productName: string;
+    ProductID: number;
+    ProductName: string;
     productCode: string;
     releaseDate: string;
     price: number;
     description: string;
-    starRating: number;
+    OverallRating: number;
     imageUrl: string;
 }

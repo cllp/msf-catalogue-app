@@ -18,4 +18,7 @@ export class MenuPageComponent {
       localStorage.clear();
       this.authService.startSignoutMainWindow();
   }
+  preValidationFunction(){
+    this.router.navigate(['pages/pre-validation']);
+  }
 }    

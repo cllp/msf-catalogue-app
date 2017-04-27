@@ -17,29 +17,658 @@
  </div>
 </nav>
 <hr/>
-<div *ngIf='post'>
-      <div class='col-md-6'>
+<div *ngIf='product_detail' > 
+<div class="container" style="width:700px;float: left">
+
+      <div class='col-md-6'style="width:700px">
                <img class='center-block img-rounded img-responsive'
-                    [style.width.px]='600'
-                    [style.margin.px]='4'
-                    src='http://i.imgur.com/{{post.productFileName}}'
-                    [title]='post.productName'>
-           </div>
+                    src='../../../assets/{{product_detail.imageFile[0].ProductFileName}}'
+                    [style.width.px]='700'
+                    [style.margin.px]='4'>
+      </div>
+      
+      
+             <div class="col-md-3" *ngFor="let image of product_detail.imageFile">
+                <img src='../../../assets/{{image.ProductFileName}}'
+                     class='center-block img-rounded img-responsive '
+                    [style.width.px]= '150'
+                    [style.margin.px]='2' >
+      
+
+</div></div>
+
    <div class='panel-body'>
-       <div class='row'>
-           <div class='col-md-6'>
+           <div class='col-md-6' >
                <div class='row'>
-                   <div class='col-md-6 nameProduct'>{{post.productName}}</div>
+                   <th class='col-md-6 nameProduct'>{{product_detail.ProductName}}</th>
                </div>
-               <div class='row'>
-                   <div class='col-md-3'>Description:</div>
-                   <div class='col-md-6'>{{post.fDescription}}</div>
-               </div>
-               </div>
-               </div>
-           </div>
-       </div>
-   <div class='panel-footer'>
+              <div class="stars">
+                 <th class="overallrating"> Overall Rating</th>
+                 <th><p style="margin-left:30px"><app-star [rating]='product_detail.OverallRating'>
+                      </app-star></p></th>
+               </div></div>
+               
+<div class="table1">
+   <h6>
+    <tr class="values">{{product_detail.EstimatedSetupTime}}</tr>
+    <hr style="background: gray">
+    <tr style="display:inline-flex"><img src="../../../assets/estimated_set-up.PNG">ESTIMATED <br/> SET-UP TIME</tr>
+   </h6>
+   <h6>
+    <tr class="values">{{product_detail.PeopleRequired}}</tr>
+    <hr style="background: gray">
+    <tr style="display:inline-flex"><img src="../../../assets/construction_people.PNG">#OF PEOPLE <br/> REQUIRED FOR <br/> CONSTRUCTION</tr>
+   </h6>
+   <h6>
+    <tr class="values" >{{product_detail.LifeSpan}}years</tr>
+    <hr style="background: gray">
+    <tr style="display:inline-flex"><img src="../../../assets/estimated_lifespan.PNG"><tr>ESTIMATED </tr> LIFESPAN</tr>
+   </h6>
+   <h6 [ngSwitch]="product_detail.Cleanability">
+      <tr class="values" *ngSwitchCase="'5'">Excellent</tr>
+      <tr class="values" *ngSwitchCase="'4'">Very Good</tr>
+      <tr class="values" *ngSwitchCase="'3'">Good</tr>
+      <tr class="values" *ngSwitchCase="'2'">Fair</tr>
+      <tr class="values" *ngSwitchCase="'1'">Poor</tr>
+      <tr class="values" *ngSwitchCase="'0'">Invalid Choice</tr>
+    <hr style="background: gray">
+    <tr style="display:inline-flex"><img src="../../../assets/cleanability.PNG">CLEANABILITY</tr>
+   </h6>
+</div>
+<div class="fivemaincharacteristics">
+  <ul style="list-style-type:none">
+<li><td>Trustworthiness and durability</td>
+    <td><p style="margin-left:30px"><app-star [rating]='product_detail.TrustWorthinessRating'></app-star></p></td></li>
+<li><td> Modularity and customization</td>
+    <td><p style="margin-left:30px" ><app-star [rating]='product_detail.ModularityRating'></app-star></p></td></li>
+<li><td>Building Envelope performance</td>
+    <td><p style="margin-left:30px"><app-star [rating]='product_detail.BuildingPerformenceRating'></app-star></p></td></li>
+<li><td>Installation</td>
+    <td><p style="margin-left:30px"><app-star [rating]='(product_detail.RequiredTraining + product_detail.EaseDurationSafety + product_detail.RequiredTools + product_detail.ClarityOfManual)/4'></app-star></p></td></li>
+<li><td>supply</td>
+    <td><p style="margin-left:30px"><app-star [rating]='product_detail.SuplyRating'></app-star></p></td></li>
+    </ul>
+</div>
+<div style="margin-top: 30px;margin-left: 750px">
+<p style="font-size: 18px"><th><img src="../../../assets/d_pdf.PNG" style="width: 30px;height: 30px;">
+<input type="download" class="btn btn-default" style="color: red;font: bold;display: inline-block" href="#" (click)="createPDF()" value="Download"/></th><td>  Product Summary</td></p>
+</div>
+    </div>
+<div class='panel-footer'>
           <input type="submit" value="choose"   class="btn btn-default btncompare"/>
           <input type="submit" value="compare"   class="btn btn-default btnchoose"/>
 </div>
+
+                                    <!--dropdown part-->
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="font: blod; font-size: 18px;text-decoration: underline ">Technical Characteristics</a>
+        </h4>
+      </div>
+<div id="collapse1" class="panel-collapse collapse">
+<div class="panel-body">
+<ul class="stylelist">
+<li><p style="color: gray ; font-size: 17px">supplier</p></li><br/>
+<div style="background-color: #E1D9D3 ">
+<table class="stylecollaps"><br/>
+                          <tr>
+                          <th>NAME</th>
+                          <th>WEBSITE</th> 
+                          <th>SIZE</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail.SupplierName}}</td>
+                          <td>{{product_detail.Website}}</td> 
+                          <td>{{product_detail.SupplierSize}}</td>
+                          </tr>
+                          <tr>
+                          <th>LOCATION</th>
+                          <th>DESCRIPTION</th> 
+                          <th>AVERAGE STOCK AVAILABILITY</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail.Location}}</td>
+                          <td>{{product_detail.SupplierDescription}}</td> 
+                          <td>{{product_detail.StockAvailability}}</td>
+                          </tr>
+                          <tr>
+                          <th>CONTANT PERSON</th>
+                          <td></td> 
+                          <th>PRODUCTION CABACITY</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail.ConctactPersonInfo}}</td>
+                          <td></td> 
+                          <td>{{product_detail.ProductionCapacity}}</td>
+                          </tr><br/>
+                          </table>
+</div><br/>
+
+<li><p style="color: gray ; font-size: 17px">Physical Characteristics</p></li><br/>
+<div class="table3-1">
+<table class="stylecollaps"style="background-color:#D4D5DA;">
+<th style="text-decoration: underline">DIMENSIONS</th><br/><br/>
+                          <tr>
+                          <th>SHAPE</th>
+                          <th>DIMENSIONS IN M</th> 
+                          <th>COVERED SURFACE IN M2</th>
+                          <th>OUTHER STRUCTURE MATERIAL</th> 
+                          </tr>
+                          <tr>
+                          <td>{{product_detail.Shape}}</td>
+                          <td style="width:33%">{{product_detail.Dimensions}}</td> 
+                          <td>{{product_detail.CoverSurface}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                          </table>
+</div><br/>
+
+<div class="table3-2">
+<table class="stylecollaps">
+<th style="text-decoration: underline">ENVELOPE CHARACTERISTICS</th><br/><br/>
+                          <tr>
+                          <th>TYPE</th>
+                          <th>MATERIAL</th> 
+                          <th>STANDARD CONNECTING CMPONENTS</th>   
+                           <th>EXTENDABILITY</th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr>
+                          <tr>
+                          <th>WINDOWS</th>
+                          <th>FLOOR SURFACE</th> 
+                          <th>OPENING/DOORS</th>
+                          <th>WASHABLE SURFACES</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+      </div><br/>
+ <div class="table3-3">
+ <table class="stylecollaps"style="background-color:#D4D5DA;">
+ <th style="text-decoration: underline">ADDITIONAL ADD-ONS AND THEIR FIXTURE</th>&nbsp;
+ <th style="text-decoration : underline">INTERCHANGEABILITY (EASE OF CUSTOMIZATION)</th><br/><br/>
+                          <tr>
+                          <th style="width:25%">SHADOW NET,WINTERIZATION KIT,FLOORING, PARTITIONING</th>
+                          <th style="width:25%">FURNITURE INCLUDED</th> 
+                          <th style="width:25%">POSSIBLE TO REPLACE PARTS WITH LOCAL PARTS</th>   
+                          <th style="width:25%">POSSIBLE TO REPLACE MATERIALS WITH LOCAL MATERIALS</th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+      </div><br/>
+ <div class="table3-4">
+ <table class="stylecollaps">
+ <th style="text-decoration: underline">ACCLIMATIZATION</th><br/><br/>
+                          <tr>
+                          <th>INSULATION</th>
+                          <th>MULTILAYER ROOF?</th> 
+                          <th>INSULATION LINER?</th>   
+                          <th>BOX-IN-BOX SYSTEM?</th>  
+                          <th>ROOF ZONE VENTILATION?</th>  
+                          <th>ADAPTABLE TO HEATING SYSTEM</th>                     
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+      </div><br/>
+ <div class="table3-5">
+ <table class="stylecollaps"style="background-color:#D4D5DA;">
+ <th style="text-decoration: underline">SAFTY AND ROBUSTNESS</th><br/><br/>
+                          <tr>
+                          <th style="width:33%">FIRE RESISTANCE (EU NORM OR EQUIVALENT)</th>
+                          <th>SNOW LOAD</th> 
+                          <th>WIND RESISTANCE</th>   
+                          <th>SECURITY</th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+</div><br/>
+
+<li><p style="color: gray ; font-size: 17px">Installation</p></li><br/>
+<div class="table3-5" style="background-color: #D1EACD">
+<table class="stylecollaps"><br/>
+                          <tr>
+                          <th>NO.OF ASSEMBLY PIECES</th>
+                          <th>ASSEMBLY MANUAL</th> 
+                          <th>PEOPLE REQUIRED</th>   
+                           <th>ESTIMATED SET-UP TIME</th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr>
+                          <tr>
+                          <th>GROUND PROPERTIES REQUIRED INCL.GROUND PREP</th>
+                          <th>EQUIPMENT REQUIRED</th> 
+                          <th>POSSIBLE TO DISMANTEL?</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+</div><br/>
+
+<li><p style="color: gray ; font-size: 17px">Transport and Pricing</p></li><br/>
+<div class="table3-5" style="background-color: #DFE3E3">
+<table class="stylecollaps"><br/>
+                          <tr>
+                          <th>PRICE</th>
+                          <th>PACKAGING DIMENSIONS (M)</th> 
+                          <th>LOADING VOLUME (M3)</th>   
+                           <th>LOADING WEIGHT (KG)</th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr>
+                          <tr>
+                          <th>SPECIAL/SENSITIVE PARTS</th>
+                          <th>LIFESPAN</th> 
+                          <th>WARRANTY</th>
+                          <th>IN USE BY MSF?</th>
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+</div><br/>
+<li><p style="color: gray ; font-size: 17px">Deployment</p></li><br/>
+<div class="table3-5" style="background-color:#FBE2C0">
+<table class="stylecollaps"><br/>
+                          <tr>
+                          <th style="width:33%">IN USE BY MSF</th>
+                          <th>IN USE BY OTHER HUMANITARIAN</th> 
+                          <th>ORGANIZATIONS</th>   
+                          <th>COMMENTS</th>                       
+                          </tr>
+                          <tr>
+                          <td style="width:33%">{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr><br/>
+                         </table>
+</div>
+</ul>
+            </div>
+       </div>
+ </div> 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style="font: blod; font-size: 18px; text-decoration: underline">HQ Qualitative Pre Validation</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+    <div class="panel-body">
+    <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Trustworthiness and durability</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Stability/robustness &nbsp;
+          <app-star [rating]='product_detail.Stability'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Tendency to aging &nbsp;
+          <app-star [rating]='product_detail.TendencyToAging'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Estimated lifespan for medical use</th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail.LifeSpanForMedicalUse}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Maintenance plan</th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail.MaintenancePlan}}</b></p></tr>
+    </div></div>
+</div><br/><br/>
+
+
+    <!--<td class='header_class' style = "font-size: 18px;padding-left:60px">Trustworthiness and durability</td>
+    <hr style="background-color: gray">
+    <table class="stylecollaps"><br/>
+                          <tr>
+                          <th>Stability/robustness &nbsp;<app-star [rating]='product_detail.Stability' style="display: inline-table"></app-star></th>
+                          <th>Tendency to aging &nbsp;<app-star [rating]='product_detail.TendencyToAging' style="display: inline-table"></app-star></th> 
+                          <th>Estimated lifespan for medical use </th>
+                           <th>Maintenance plan </th>                       
+                          </tr>
+                          <tr>
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td> 
+                          <td>{{product_detail}}</td>
+                          <td>{{product_detail}}</td>
+                          </tr>
+    </table><br/><br/>-->
+
+
+    <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Modularity and customization</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Modularity &nbsp;
+          <app-star [rating]='product_detail.Modularity'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div>
+    </div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Customization &nbsp;
+          <app-star [rating]='product_detail.Cutomization'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div>
+    </div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Continuity/sutainability &nbsp;
+          <app-star [rating]='product_detail.Continuity'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+</div><br/><br/>
+
+
+    <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Building Envelope performance</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Thermal performance &nbsp;
+          <app-star [rating]='product_detail.ThermalPeformance'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr><br/> 
+        <tr></tr>
+        <th style="padding-left:75px">Cleanability of floor and walls &nbsp;
+          <app-star [rating]='product_detail.Cleanability' style="display: inline-table"></app-star></th>
+        </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Natural light &nbsp;
+          <app-star [rating]='product_detail.NaturalLight'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr><br/> 
+        <tr></tr>
+        <th style="padding-left:75px">Tendencyto get dirty/slippery &nbsp;
+          <app-star [rating]='product_detail.TendencyToGetDirty' style="display: inline-table"></app-star></th> 
+    </div>
+    </div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Natural ventilation &nbsp;
+          <app-star [rating]='product_detail.NaturalVentilation'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div><br/> 
+</div><br/><br/>
+
+<div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px"> Installation</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Required training</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.RequiredTraining'></app-star></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Ease,duration and safety of set-up</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.EaseDurationSafety'></app-star></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Required tools and machinery</th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.RequiredTools'></app-star></p></tr>
+          <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Clarity of manual</th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.ClarityOfManual'></app-star></p></tr>
+          <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+</div><br/><br/>
+
+<div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Supply</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Mobility</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.Mobility'></app-star></p></tr>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px"><b>Quality of service</b></th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.QualityOfService'></app-star></p></tr>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div>
+    </div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Pricing</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.Pricing'></app-star></p></tr>
+         <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    </div></div><br/><br/>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href='#collapse3' style="font: blod; font-size: 18px;text-decoration: underline">Feed-back from the Field</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+
+ <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Trustworthiness and durability</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Stability/robustness &nbsp;
+          <app-star [rating]='product_detail.Stability'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+       <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Tendency to aging &nbsp;
+          <app-star [rating]='product_detail.TendencyToAging'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Estimated lifespan for medical use</th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail.LifeSpanForMedicalUse}}</b></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Maintenance plan</th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail.MaintenancePlan}}</b></p></tr>
+    </div></div>
+</div><br/><br/>
+
+    <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Modularity and customization</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Modularity &nbsp;
+          <app-star [rating]='product_detail.Modularity'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Customization &nbsp;
+          <app-star [rating]='product_detail.Cutomization'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Continuity/sutainability &nbsp;
+          <app-star [rating]='product_detail.Continuity'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+</div><br/><br/>
+
+
+    <div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Building Envelope performance</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Thermal performance &nbsp;
+          <app-star [rating]='product_detail.ThermalPeformance'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+        <br/> <br/>
+        <tr></tr>
+        <th style="padding-left:75px">Cleanability of floor and walls &nbsp;
+          <app-star [rating]='product_detail.Cleanability' style="display: inline-table"></app-star></th>
+        </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Natural light &nbsp;
+          <app-star [rating]='product_detail.NaturalLight'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+        <br/><br/> 
+        <tr></tr>
+        <th style="padding-left:75px">Tendencyto get dirty/slippery &nbsp;
+          <app-star [rating]='product_detail.TendencyToGetDirty' style="display: inline-table"></app-star></th> 
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th style="padding-left:75px">Natural ventilation &nbsp;
+          <app-star [rating]='product_detail.NaturalVentilation'style="display:inline-table"></app-star></th><br/>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div><br/> 
+</div><br/><br/>
+
+<div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px"> Installation</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Required training</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.RequiredTraining'></app-star></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Ease,duration and safety of set-up</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.EaseDurationSafety'></app-star></p></tr>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Required tools and machinery</th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.RequiredTools'></app-star></p></tr>
+          <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+          <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Clarity of manual</th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.ClarityOfManual'></app-star></p></tr>
+          <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+          <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+</div><br/><br/>
+
+<div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Supply</th>
+    <hr style="background-color: gray">
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Mobility</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.Mobility'></app-star></p></tr>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px"><b>Quality of service</b></th>
+          <tr><p style="padding-left:75px"><app-star [rating]='product_detail.QualityOfService'></app-star></p></tr>
+        <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+        <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div>
+    </div>
+    <div class='col-md-3'>
+    <div class="stars">
+        <th class="thermal" style="padding-left:75px">Pricing</th>
+        <tr><p style="padding-left:75px"><app-star [rating]='product_detail.Pricing'></app-star></p></tr>
+         <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+         <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+    </div></div>
+</div><br/><br/>
+
+<div class ='row'>
+    <th class='header_class' style = "font-size: 20px;font-weight:normal;padding-left:75px">Comments</th>
+    <hr style="background-color: gray">
+    <tr><p style="padding-left:75px;font-size:10px"><b>{{product_detail}}</b></p></tr>
+    <th><a href='#'style="padding-left:75px;font-size:10px">READ ALL FEEDBACKS</a></th>
+
+</div><br/><br/>
+        </div>
+      </div>
+    </div>
+
+</div>                <!--dropdown part finish-->
+
+<div class='buttons'>
+          <input type="submit" value="Download Installation Manual"   class="btn btn-default btndownload"/>
+          <input type="submit" value="Download Mantainance Plan"   class="btn btn-default btndownload"/>
+          <input type="submit" value="Download Shelter Plans"   class="btn btn-default btndownload"/>
+</div>
+
+<!--<p style="font-size: 20px">SIMILAR SHELTERS</p><br/>
+<p style="font-size: 20px">SAME MANIFACTURER</p>-->
+
+
+      </div>

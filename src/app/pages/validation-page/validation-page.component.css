@@ -1,0 +1,43 @@
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0.5em 0;
+    margin-left:50px;
+    padding: 0;
+    width:95%;
+    background: grey;
+}
+.button{
+    background-color: red;
+    border: none;
+    color: white;
+    margin-left:1400px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: verdana;
+}
+.img{
+    padding-left:50px;
+    top:5px;
+    position:relative;
+}
+.header_class{
+    font-size: 20px;
+    font-weight:normal;
+    font-family:Arial;
+    padding-left:50px
+}
+.model{
+    padding-left:50px;
+}
+textarea {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 2px solid grey;
+    margin-left:5px;
+    font-size:10px;
+}

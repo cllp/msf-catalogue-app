@@ -7,13 +7,16 @@
       <div class="col-md-4" *ngFor="let product of products">  
            <a [routerLink]="['/pages/productdetails', product.ProductID]">
             <img class="img-rounded"
-                src='src/assets/desgin_shelter.PNG'
+                src='src/assets/{{product.ProductPicture}}'
                 [title]='product.ProductName | uppercase'
                 [style.width.px]='imageWidth'
                 [style.margin.px]='imageMargin'>
-            <div class="caption">
+            <div class="caption" style="color: black">
              <p>{{product.ProductName}}</p>
           </div> </a>
+            <div class="stars">
+      <p><app-star [rating]='product.ProductRating'></app-star></p>
+       </div>
       </div>
     </div>  
 </div>                                 

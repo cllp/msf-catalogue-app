@@ -2,25 +2,27 @@ import { Injectable } from '@angular/core';
 import {Service} from "./service";
 import {HttpClient} from "./http-client.service";
 import {Observable} from "rxjs/Rx";
-import {IFilter} from "../models/filter";
-import {IProduct} from "../pages/products";
+import {IFilterGroup} from "../models/filter";
+import {IProduct} from "app/models/products";
 
-const _FIL_BASE = 'http://localhost:4200/src/api/filter.json';
+const _URL_BASE = 'http://localhost:5006/api';
 
 @Injectable()
-export class ProductFilterService extends Service{
-posts:IFilter[]
-private url = _FIL_BASE;
+export class ProductFilterService extends Service {
+private filterLayoutUrl = _URL_BASE+'/filter';
+private filterUrl = 'http://localhost:5006/api/product/';
     constructor(private http:HttpClient) {super(); }
-    GetAllFilters():Observable<IFilter[]> {
-        return this.http.get(this.url)
+    GetAllFilters():Observable<IFilterGroup[]> {
+        return this.http.get(this.filterLayoutUrl)
             .map(this.extractData)
             .do(data => console.log('All: ' +  JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    GetFilterCriteria(filterCriteria: any) {
-        //request()
-        alert("Hello"+ filterCriteria);
+    GetFilterCriteria(ProductCategory, FilterGroups):Observable<IProduct[]> {
+       return this.http.post(this.filterUrl +ProductCategory+'/filterJson/',FilterGroups)
+            .map(this.extractData)
+            .do(data => console.log('All: ' +  JSON.stringify(data)))
+            .catch(this.handleError);
     }
 }
