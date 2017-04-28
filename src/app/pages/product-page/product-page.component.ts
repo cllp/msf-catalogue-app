@@ -15,11 +15,10 @@ export class ProductPageComponent implements OnInit {
   imageWidth: number = 250;
   imageMargin: number = 2;
   products:any[];
-  
+  filterCriteria= [];
   constructor(private router: Router, private productService: ProductService,private location: Location) { }
 
   ngOnInit() {
-    //load the data on init.
     this.loadPosts();
   }
 
@@ -29,14 +28,10 @@ export class ProductPageComponent implements OnInit {
 
       //Just like that. (of course do the heard edge checks)
       this.products = data;
-
     }, error => console.log('error in loading the products'));
   }
 
-  //This is a method that you can use in the html.
   getPosts() {
-    //Notice the router instance how it was loaded in the constructor.
-    //That apply to all services. No need to use 'new' keyword to instatiate an object.
     this.router.navigate(['product', 'products']);
   }
   goBack(): void {
